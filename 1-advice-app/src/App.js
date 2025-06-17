@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -21,14 +20,25 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    // Fetch initial advice when the component mounts
+    getAdvice();
+  }, []);
+
+  function Message(props) {
+    return (
+      <p>
+        You have read <strong>{props.count}</strong> pieces of advice
+      </p>
+    );
+  }
+
   return (
     <div className="App">
       <h1>Advice Generator</h1>
       <h1>{advice}</h1>
       <button onClick={getAdvice}>Get Advice</button>
-      <p>
-        You have read <strong>{count}</strong> pieces of advice
-      </p>
+      <Message count={count} />
     </div>
   );
 }
