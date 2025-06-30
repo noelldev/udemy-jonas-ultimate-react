@@ -173,7 +173,7 @@ const updatedBook = {
   // Adding a new property
   moviePublicationDate: "2001-12-19",
 
-  // Overwriting an existing property
+  // Overwriting an existing property, if pages comes first than ...book then pages in ...book will remain unchanged
   pages: 1210,
 };
 updatedBook;
